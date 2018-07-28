@@ -3,13 +3,53 @@
     x:Class="NewXFormsFeatures.Views.TextsModifications"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Text Ameliorations">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
+    xmlns:viewModels="clr-namespace:NewXFormsFeatures.ViewModels"
+    BindingContext="{viewModels:MainViewModel}">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="Large" Text="Big Title" />
+            <Entry WidthRequest="200" />
         </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Entry
+                HeightRequest="40"
+                IsTextPredictionEnabled="false"
+                MaxLength="5"
+                ReturnType="Search"
+                VerticalOptions="Center">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>CapitalizeNone</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
+
+            <Label
+                Grid.Row="1"
+                Margin="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="(Tap me)" TextColor="Blue">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SpanTappedCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
