@@ -103,6 +103,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\cancel.png" />
+    <Content Include="Assets\done.png" />
+    <Content Include="Assets\email.png" />
+    <Content Include="Assets\reload.png" />
+    <Content Include="Assets\StoreLogo.backup.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
