@@ -14,17 +14,13 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <StackLayout>
 
             <Entry
                 HeightRequest="40"
                 IsTextPredictionEnabled="false"
                 MaxLength="5"
-                ReturnType="Search"
+                ReturnType="Done"
                 VerticalOptions="Center">
                 <Entry.Keyboard>
                     <Keyboard x:FactoryMethod="Create">
@@ -35,6 +31,8 @@
                 </Entry.Keyboard>
             </Entry>
 
+            <Button Padding="30" Text="I'm a button" />
+
             <Label
                 Grid.Row="1"
                 Margin="20"
@@ -42,6 +40,11 @@
                 VerticalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
+                        <Span
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="{Binding SpanText}"
+                            TextColor="Blue" />
                         <Span Text="(Tap me)" TextColor="Blue">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SpanTappedCommand}" />
@@ -50,6 +53,6 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
